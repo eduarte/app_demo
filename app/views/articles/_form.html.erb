@@ -64,14 +64,15 @@
   <div class="field">
     <div class="row collapse">
       <div class="small-3 large-2 columns">
-        <span class="prefix"><strong>Store ID:</strong></span>
+        <span class="prefix"><strong>Store:</strong></span>
       </div>
       <div class="small-9 large-10 columns">
-        <%= f.number_field :store_id %>
+        <%= f.collection_select :store_id, Store.order(:name),:id,:name, include_blank: true %>
       </div>
     </div>
   </div>
   <div class="actions">
+  <br>
     <input type="submit" class="button success" value="Submit">
     <a href="/articles" class="button alert">Cancel</a>
   </div>

@@ -26,7 +26,8 @@
         </p>
         <p>
           <strong>Store:</strong>
-          <%= @article.store_id %>
+          <% @store = Store.find(@article.store_id) %>
+          <%= @store.name %>
         </p>
     </fieldset>
       </div>
