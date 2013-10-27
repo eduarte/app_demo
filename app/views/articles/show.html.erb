@@ -1,34 +1,36 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @article.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @article.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @article.price %>
-</p>
-
-<p>
-  <strong>Total in shelf:</strong>
-  <%= @article.total_in_shelf %>
-</p>
-
-<p>
-  <strong>Total in vault:</strong>
-  <%= @article.total_in_vault %>
-</p>
-
-<p>
-  <strong>Store:</strong>
-  <%= @article.store_id %>
-</p>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<div class="row">
+ <h1>Super Zapatos</h1>
+    <div class="large-12 columns">
+      <div class="panel">
+      <% if(notice) %>
+        <span class="round success label"><%= notice %></span>
+      <% end %>
+        <h2><%= @article.name %></h2>
+    <fieldset>
+      <legend>Article Information</legend>
+        <p>
+          <strong>Description:</strong>
+          <%= @article.description %>
+        </p>
+        <p>
+          <strong>Price:</strong>
+          <%= @article.price %>
+        </p>
+        <p>
+          <strong>Total in shelf:</strong>
+          <%= @article.total_in_shelf %>
+        </p>
+        <p>
+          <strong>Total in vault:</strong>
+          <%= @article.total_in_vault %>
+        </p>
+        <p>
+          <strong>Store:</strong>
+          <%= @article.store_id %>
+        </p>
+    </fieldset>
+      </div>
+      <a href="<%= edit_article_path(@article) %>" class="button">Edit</a>
+      <a href="/articles" class="button">Back</a>
+    </div>
+</div>  
