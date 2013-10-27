@@ -5,37 +5,74 @@
 
       <ul>
       <% @article.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+        <span class="round alert label"><li><%= msg %></li></span>
       <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><strong>Name:</strong></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.text_field :name %>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_field :description %>
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><strong>Description:</strong></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.text_field :description %>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><strong>Price:</strong></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.text_field :price %>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :total_in_shelf %><br>
-    <%= f.number_field :total_in_shelf %>
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><strong>Total in Shelf:</strong></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.number_field :total_in_shelf %>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :total_in_vault %><br>
-    <%= f.number_field :total_in_vault %>
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><strong>Total in Vault:</strong></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.number_field :total_in_vault %>
+      </div>
+    </div>
   </div>
   <div class="field">
-    <%= f.label :store_id %><br>
-    <%= f.number_field :store_id %>
+    <div class="row collapse">
+      <div class="small-3 large-2 columns">
+        <span class="prefix"><strong>Store ID:</strong></span>
+      </div>
+      <div class="small-9 large-10 columns">
+        <%= f.number_field :store_id %>
+      </div>
+    </div>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <input type="submit" class="button success" value="Submit">
+    <a href="/articles" class="button alert">Cancel</a>
   </div>
 <% end %>

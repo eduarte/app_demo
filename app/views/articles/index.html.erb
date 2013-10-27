@@ -1,37 +1,46 @@
-<h1>Listing articles</h1>
+<div class="row">
+ <h1>Super Zapatos</h1>
+    <div class="large-12 columns">
+      <div class="panel"  ng-controller="StoresCtrl">
+        <h2>Listing articles</h2>
+        <table class="large-12 columns">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Price</th>
+              <th>Total in shelf</th>
+              <th>Total in vault</th>
+              <th>Store</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Total in shelf</th>
-      <th>Total in vault</th>
-      <th>Store</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+          <tbody>
+            <% @articles.each do |article| %>
+              <tr>
+                <td><%= article.name %></td>
+                <td><%= article.description %></td>
+                <td><%= article.price %></td>
+                <td><%= article.total_in_shelf %></td>
+                <td><%= article.total_in_vault %></td>
+                <td><%= article.store_id %></td>
+                <td><%= link_to 'Show', article %></td>
+                <td><%= link_to 'Edit', edit_article_path(article) %></td>
+                <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <a href="<%= new_article_path %>" class="button success">Create New Article</a>
+      </div>
+    </div>
+  </div>  
 
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.name %></td>
-        <td><%= article.description %></td>
-        <td><%= article.price %></td>
-        <td><%= article.total_in_shelf %></td>
-        <td><%= article.total_in_vault %></td>
-        <td><%= article.store_id %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Article', new_article_path %>
+
+
+
