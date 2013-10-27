@@ -1,0 +1,38 @@
+<%= form_for(@store) do |f| %>
+  <% if @store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% @store.errors.full_messages.each do |msg| %>
+        <span class="round alert label"><li><%= msg %></li></span>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+      <div class="row collapse">
+        <div class="small-3 large-2 columns">
+          <span class="prefix"><strong>Name:</strong></span>
+        </div>
+        <div class="small-9 large-10 columns">
+          <%= f.text_field :name %>
+        </div>
+      </div>
+  </div>
+  <div class="field">
+      <div class="row collapse">
+        <div class="small-3 large-2 columns">
+          <span class="prefix"><strong>Address:</strong></span>
+        </div>
+        <div class="small-9 large-10 columns">
+          <%= f.text_field :address %>
+        </div>
+      </div>
+  </div>
+  <div class="actions">
+    <input type="submit" class="button success" value="Submit">
+    <a href="/" class="button alert">Cancel</a>
+  </div>
+<% end %>

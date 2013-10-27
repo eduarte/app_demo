@@ -1,0 +1,14 @@
+
+<div class="row">
+ <h1>Super Zapatos</h1>
+    <div class="large-12 columns">
+      <div class="panel"  ng-controller="StoresCtrl">
+      	<h2>List of Stores</h2>
+
+	    <li ng-repeat="store in stores">
+	      	<a href=""><h3>Store: {{store.name}}</h3></a>
+	    </li>
+	    <a href="<%= 'stores/new' %>" class="button">Create New Store</a>
+      </div>
+    </div>
+  </div>  
