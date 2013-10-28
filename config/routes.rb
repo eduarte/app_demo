@@ -6,7 +6,7 @@ AppDemo::Application.routes.draw do
 
   get 'services/stores' => 'services#stores'
   get 'services/articles/' => 'services#articles'
-  get 'services/articles/stores/:id' => 'services#articles'
+  get 'services/articles/stores/:id' => 'services#articles_store'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

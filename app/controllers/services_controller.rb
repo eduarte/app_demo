@@ -5,23 +5,30 @@ class ServicesController < ApplicationController
 
   def stores
     @stores = Store.select(:id, :name, :address)
-    render json: {:stores => @stores, :success => true, :total_elements => @stores.size}
+    render json: custom_render(:stores, @stores)
   end
 
   def articles
-  @articles = Article.find_by_sql("
-      select a.id, a.description, a.name, a.price, a.total_in_shelf, a.total_in_vault, s.name as 'store_name'
-      from articles a, stores s
-      where a.store_id = s.id")
-  
-  render json: {:articles => @articles, :success => true, :total_elements => @articles.size}
+   articles = Article.all_articles
+   render json: custom_render(:articles, articles)
   end
 
   def articles_store
-  @articles = Article.find_by_sql("
-      select a.id, a.description, a.name, a.price, a.total_in_shelf, a.total_in_vault, s.name as 'store_name'
-      from articles a, stores s
-      where a.store_id = s.id and s.id = #{params[:id]}")
-  render json: @articles
+    store_id = params[:id]
+    if store_id.to_s.match(/^\d+$/)
+      articles_by_store = Article.articles_by_store(store_id)
+      if  articles_by_store.empty?
+        render json: {:error_msg => "Record not Found",:error_code => 404, :success => false}
+      else
+        render json: custom_render(:articles, articles_by_store)  
+      end
+    else
+      render json: {:error_msg => "Bad Request",:error_code => 400, :success => false}
+    end
+  
+  end
+
+  def custom_render(element_name, element)
+     {element_name => element, :success => true, :total_elements => element.send(:size)}
   end
 end
