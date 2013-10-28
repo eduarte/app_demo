@@ -4,7 +4,7 @@ AppDemo::Application.routes.draw do
 
   resources :stores
 
-  get 'services/' => 'services#index'
+  get 'services/stores' => 'services#stores'
   get 'services/articles/' => 'services#articles'
   get 'services/articles/stores/:id' => 'services#articles'
 
